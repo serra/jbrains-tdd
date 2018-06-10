@@ -4,11 +4,6 @@ def _gcd(a, b):
     return _gcd(b, a % b)
 
 
-def add(a, b):
-    # assume a nd b are Fractions
-    return a + b
-
-
 class Fraction:
 
     def __init__(self, numerator, denominator):

@@ -1,7 +1,6 @@
 from .context import fraction
 import unittest
 from fraction.arithmetic import Fraction
-from fraction.arithmetic import add
 
 
 def _f(a, b):
@@ -34,8 +33,8 @@ class FractionTestCase(unittest.TestCase):
         assert str(_f(37, 17)) == '37/17'
 
     def test_add_fractions(self):
-        assert str(add(_f(1, 3), _f(1, 2))) == '5/6'
-        assert str(add(_f(1, 6), _f(1, 3))) == '1/2'
+        assert str(_f(1, 3) + _f(1, 2)) == '5/6'
+        assert str(_f(1, 6) + _f(1, 3)) == '1/2'
 
     def test_add_like_normal_numbers(self):
         assert str(_f(1, 3) + _f(1, 2)) == '5/6'
