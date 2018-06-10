@@ -4,6 +4,11 @@ def _gcd(a, b):
     return _gcd(b, a % b)
 
 
+def add(a, b):
+    # assume a nd b are Fractions
+    return a.add(b)
+
+
 class Fraction:
 
     def __init__(self, numerator, denominator):
@@ -19,6 +24,11 @@ class Fraction:
 
         self._num = num // gcd
         self._den = den // gcd
+
+    def add(self, other):
+        common_denominator = self._den * other._den
+        sum_numerator = other._den * self._num + other._num * self._den
+        return Fraction(sum_numerator, common_denominator)
 
     def __str__(self):
         return f'{self._num}/{self._den}'

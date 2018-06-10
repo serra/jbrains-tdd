@@ -1,6 +1,7 @@
 from .context import fraction
 import unittest
 from fraction.arithmetic import Fraction
+from fraction.arithmetic import add
 
 
 class FractionTestCase(unittest.TestCase):
@@ -18,15 +19,18 @@ class FractionTestCase(unittest.TestCase):
         f = Fraction(1, 2)
         assert str(f) == '1/2'
 
-    def test_to_lowest_terms(self):
-        print(str(Fraction(2, 3)))
+    def test_fractions_are_in_lowest_terms(self):
         assert str(Fraction(2, 3)) == '2/3'
-        print(str(Fraction(4, 6)))
         assert str(Fraction(4, 6)) == '2/3'
+        assert str(Fraction(5, 4)) == '5/4'
+        assert str(Fraction(15, 12)) == '5/4'
 
-    # express fractions as lowest terms (4/6 becomes 2/3)
+    def test_fractions_are_improper_and_not_mixed(self):
+        assert str(Fraction(37, 17)) != '2 3/17'
+        assert str(Fraction(37, 17)) == '37/17'
 
-    # express fractions as improper and not mixed (7/5 does NOT become 1 2/7)
+    def test_add_fractions(self):
+        assert str(add(Fraction(1, 3), Fraction(1, 2))) == '5/6'
 
     # add
 
