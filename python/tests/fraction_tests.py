@@ -35,11 +35,10 @@ class FractionTestCase(unittest.TestCase):
 
     def test_add_fractions(self):
         assert str(add(_f(1, 3), _f(1, 2))) == '5/6'
+        assert str(add(_f(1, 6), _f(1, 3))) == '1/2'
 
-    # add
-
-    # need to be able treat fractions as normal numbers
-    # e.g.: can do 4 + 9 wit fractions as with numbers
+    def test_add_like_normal_numbers(self):
+        assert str(_f(1, 3) + _f(1, 2)) == '5/6'
 
     # subtract
 

@@ -6,7 +6,7 @@ def _gcd(a, b):
 
 def add(a, b):
     # assume a nd b are Fractions
-    return a.add(b)
+    return a + b
 
 
 class Fraction:
@@ -25,7 +25,7 @@ class Fraction:
         self._num = num // gcd
         self._den = den // gcd
 
-    def add(self, other):
+    def __add__(self, other):
         common_denominator = self._den * other._den
         sum_numerator = other._den * self._num + other._num * self._den
         return Fraction(sum_numerator, common_denominator)
