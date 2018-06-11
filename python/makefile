@@ -3,5 +3,8 @@ bootstrap:
 	pip install -r requirements.txt
 test:
 	nosetests tests
-cibuild:
+cibuild: package
+package:
 	python setup.py sdist bdist_wheel
+publish-to-test-pypi: package
+	twine upload --repository-url https://test.pypi.org/legacy/ dist/*
