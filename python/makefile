@@ -9,6 +9,9 @@ package:
 	python setup.py sdist bdist_wheel
 publish-to-test-pypi: package
 	twine upload --repository-url https://test.pypi.org/legacy/ dist/*
+test-test-pypi:
+	pip install --index-url https://test.pypi.org/simple/ serrajbrainstdd
+	python ./tests/packaging
 ### bumpversion
 bump-patch:
 	bumpversion patch
