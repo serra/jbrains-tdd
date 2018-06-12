@@ -1,6 +1,6 @@
-from .context import fraction
+from .context import fracturing
 import unittest
-from fraction.arithmetic import Fraction
+from fracturing.fraction import Fraction
 
 
 def _f(a, b):
