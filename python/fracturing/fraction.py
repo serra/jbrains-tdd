@@ -7,6 +7,8 @@ def _gcd(a, b):
 class Fraction:
 
     def __init__(self, numerator, denominator):
+        if denominator == 0:
+            raise ZeroDenominatorError
         self._num = numerator
         self._den = denominator
         self._to_lowest_terms()
@@ -30,3 +32,7 @@ class Fraction:
 
     def __repr__(self):
         return f'{self._num}/{self._den}'
+
+
+class ZeroDenominatorError(ValueError):
+    pass
