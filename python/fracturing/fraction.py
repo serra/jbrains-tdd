@@ -25,5 +25,5 @@ class Fraction:
         sum_numerator = other._den * self._num + other._num * self._den
         return Fraction(sum_numerator, common_denominator)
 
-    def __str__(self):
+    def __repr__(self):
         return f'{self._num}/{self._den}'
