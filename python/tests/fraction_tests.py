@@ -30,19 +30,16 @@ class FractionTestCase(unittest.TestCase):
 
     def test_fractions_are_improper_and_not_mixed(self):
         assert str(_f(37, 17)) != '2 3/17'
-        assert str(_f(37, 17)) == '37/17'
+        assert _f(37, 17) == _f(37, 17)
 
     def test_add_fractions(self):
-        assert str(_f(1, 3) + _f(1, 2)) == '5/6'
-        assert str(_f(1, 6) + _f(1, 3)) == '1/2'
+        assert _f(1, 3) + _f(1, 2) == _f(5, 6)
+        assert _f(1, 6) + _f(1, 3) == _f(1, 2)
 
     def test_add_like_normal_numbers(self):
-        assert str(_f(1, 3) + _f(1, 2)) == '5/6'
+        assert _f(1, 3) + _f(1, 2) == _f(5, 6)
 
-    # subtract
-
-    # multiply
-
-    # divide
-
-    # 0 denominator not allowed
+    def test_equality_of_fractions(self):
+        assert _f(2, 3) == _f(2, 3)
+        assert _f(2, 3) == _f(4, 6)
+        assert _f(2, 3) != _f(4, 7)
