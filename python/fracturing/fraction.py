@@ -5,10 +5,10 @@ def _gcd(a, b):
 
 
 class Fraction:
-
     def __init__(self, numerator, denominator):
         if denominator == 0:
             raise ZeroDenominatorError
+
         self._num = numerator
         self._den = denominator
         self._to_lowest_terms()
