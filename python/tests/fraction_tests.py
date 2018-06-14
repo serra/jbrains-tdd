@@ -44,8 +44,8 @@ class FractionTestCase(unittest.TestCase):
         assert _f(0, 13) + _f(1, 2) == _f(1, 2)
 
     def test_can_not_create_fraction_with_zero_denominator(self):
-        with self.assertRaises(ZeroDenominatorError) as context:
-            a = Fraction(1, 0)
+        with self.assertRaises(ZeroDenominatorError):
+            Fraction(1, 0)
 
     def test_add_like_normal_numbers(self):
         assert _f(1, 3) + _f(1, 2) == _f(5, 6)
