@@ -1,9 +1,10 @@
 clean:
 	rm -rf dist
 	rm -rf build
-# this makefile assumes we are in a (virtual) env with python 3.6
 bootstrap:
-	pip install -r requirements.txt
+	pipenv install
+setup:
+	pipenv shell
 test:
 	nosetests tests
 cibuild: package
