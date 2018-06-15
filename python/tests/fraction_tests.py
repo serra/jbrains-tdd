@@ -19,14 +19,15 @@ class FractionTestCase(unittest.TestCase):
         assert f is not None
 
     def test_can_print_fraction(self):
+        # this is useful in test output
         f = _f(1, 2)
         assert str(f) == '1/2'
 
     def test_fractions_are_in_lowest_terms(self):
-        assert str(_f(2, 3)) == '2/3'
-        assert str(_f(4, 6)) == '2/3'
-        assert str(_f(5, 4)) == '5/4'
-        assert str(_f(15, 12)) == '5/4'
+        assert _f(2, 3) == _f(2, 3)
+        assert _f(4, 6) == _f(2, 3)
+        assert _f(5, 4) == _f(5, 4)
+        assert _f(15, 12) == _f(5, 4)
 
     def test_fractions_are_improper_and_not_mixed(self):
         assert str(_f(37, 17)) != '2 3/17'
@@ -37,7 +38,7 @@ class FractionTestCase(unittest.TestCase):
         assert _f(1, 6) + _f(1, 3) == _f(1, 2)
         assert _f(1, 2) + _f(1, 2) == _f(1, 1)
         assert _f(1, 12) + _f(2, 12) == _f(1, 4)
-        assert str(_f(7, 9) + _f(5, 9)) == '4/3'
+        assert _f(7, 9) + _f(5, 9) == _f(4, 3)
 
     def test_add_with_zeros(self):
         assert _f(0, 2) + _f(0, 2) == _f(0, 2)
