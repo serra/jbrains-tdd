@@ -20,4 +20,5 @@ class WholeNumberFractionsTestCase(unittest.TestCase):
 
     def test_addition(self):
         assert Fraction(1) + Fraction(0) == Fraction(1)
+        assert Fraction(0) + Fraction(0) == Fraction(0)
         assert Fraction(2) + Fraction(5) == Fraction(7)
