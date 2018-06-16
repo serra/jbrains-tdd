@@ -33,5 +33,15 @@ class FractionRepresentationTestCase(unittest.TestCase):
 class FractionEqualityTestCase(unittest.TestCase):
     def test_equality_of_fractions(self):
         assert Fraction(2, 3) == Fraction(2, 3)
-        assert Fraction(2, 3) == Fraction(4, 6)
+
+    def test_inequality_of_fractions(self):
         assert Fraction(2, 3) != Fraction(4, 7)
+
+    def test_fractions_as_if_reduced(self):
+        assert Fraction(2, 3) == Fraction(4, 6)
+
+    def test_initial_location_of_sign_does_not_matter_for_equality(self):
+        assert Fraction(-1, 2) == Fraction(1, -2)
+
+    def test_double_negative_equals_positive(self):
+        assert Fraction(-1, -2) == Fraction(1, 2)
