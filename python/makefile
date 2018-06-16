@@ -2,6 +2,7 @@ clean:
 	rm -rf dist
 	rm -rf build
 bootstrap:
+	pip3 install pipenv --upgrade
 	pipenv install
 setup:
 	pipenv shell
