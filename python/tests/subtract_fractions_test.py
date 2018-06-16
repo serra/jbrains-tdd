@@ -20,3 +20,7 @@ class SubtractFractionsTestCase(unittest.TestCase):
     def test_substract_will_return_fraction_in_lowest_terms(self):
         assert str(Fraction(7, 15) - Fraction(4, 15)) == '1/5'
         assert str(Fraction(4, 15) - Fraction(7, 15)) == '-1/5'
+
+    def test_subtract_with_different_denominators(self):
+        assert Fraction(3, 7) - Fraction(1, 4) == Fraction(5, 28)
+        assert Fraction(2, 3) - Fraction(1, 5) == Fraction(7, 15)
