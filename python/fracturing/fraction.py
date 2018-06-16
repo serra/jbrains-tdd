@@ -27,6 +27,9 @@ class Fraction:
         sum_numerator = other._den * self._num + other._num * self._den
         return Fraction(sum_numerator, common_denominator)
 
+    def __sub__(self, other):
+        return 0
+
     def __eq__(self, other):
         return self._num == other._num and self._den == other._den
 
