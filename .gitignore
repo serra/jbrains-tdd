@@ -1,4 +1,13 @@
 
 *.sublime-workspace
 
-python/venv-test/
+venv/
+
+__pycache__/
+
+*.pyc
+
+build/
+dist/
+
+serrajbrainstdd\.egg-info/

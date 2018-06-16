@@ -1,1 +1,1 @@
-jbrains-tdd
+Exrecises for jbrains' tdd course in Python.
