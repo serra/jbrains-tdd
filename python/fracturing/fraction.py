@@ -28,7 +28,8 @@ class Fraction:
         return Fraction(sum_numerator, common_denominator)
 
     def __sub__(self, other):
-        return 0
+        negative_other = Fraction(-1 * other._num)
+        return self.__add__(negative_other)
 
     def __eq__(self, other):
         return self._num == other._num and self._den == other._den
