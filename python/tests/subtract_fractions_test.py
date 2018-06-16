@@ -12,3 +12,6 @@ class SubtractFractionsTestCase(unittest.TestCase):
 
     def test_subtract_whole_numbers_negative_result(self):
         assert Fraction(3) - Fraction(5) == Fraction(-2)
+
+    def test_can_subtract_fractions_with_same_denominator(self):
+        assert Fraction(2, 3) - Fraction(1, 3) == Fraction(1, 3)
