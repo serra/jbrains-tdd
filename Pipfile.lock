@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "286326b27446e1b7adb24596484715c464aef859b75ba7b3d6158d91ed2a7632"
+            "sha256": "98bdbc10b03e5fb4206347c14e635469e63bb8fc193a0cc4a212369c36d48fee"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -55,13 +55,6 @@
             ],
             "index": "pypi",
             "version": "==2.6"
-        },
-        "macfsevents": {
-            "hashes": [
-                "sha256:1324b66b356051de662ba87d84f73ada062acd42b047ed1246e60a449f833e10"
-            ],
-            "index": "pypi",
-            "version": "==0.8.1"
         },
         "nose": {
             "hashes": [
@@ -137,5 +130,13 @@
             "version": "==1.22"
         }
     },
-    "develop": {}
+    "develop": {
+        "macfsevents": {
+            "hashes": [
+                "sha256:1324b66b356051de662ba87d84f73ada062acd42b047ed1246e60a449f833e10"
+            ],
+            "index": "pypi",
+            "version": "==0.8.1"
+        }
+    }
 }
