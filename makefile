@@ -7,8 +7,8 @@ bootstrap:
 setup:
 	pipenv shell
 test:
-	nosetests tests
-cibuild: package
+	nosetests tests --with-coverage
+cibuild: test package
 ### Packageing and publishing
 package:
 	python setup.py sdist bdist_wheel

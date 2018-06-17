@@ -2,5 +2,7 @@ language: python
 python:
 - '3.6'
 install:
-- "make"
-script: make bootstrap test cibuild
+- make bootstrap
+script: 
+- make cibuild
+- codecov
