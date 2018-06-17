@@ -5,4 +5,5 @@ install:
 - make bootstrap
 script: 
 - make cibuild
+after_success:
 - codecov
