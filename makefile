@@ -7,7 +7,7 @@ bootstrap:
 setup:
 	pipenv shell
 test:
-	nosetests tests --with-coverage
+	nosetests tests --with-coverage --cover-xml
 cibuild: test package
 ### Packageing and publishing
 package:
