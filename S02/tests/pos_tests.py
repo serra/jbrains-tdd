@@ -15,3 +15,13 @@ class TerminalTestCase(unittest.TestCase):
     def test_displays_no_message_if_item_does_not_exist(self):
         t = Terminal()
         t.on_barcode('does not exist')
+
+    def test_can_display_a_price(self):
+        self.displayed_price = None
+
+        def _price_callback(price):
+            self.displayed_price = price
+
+        t = Terminal(_price_callback)
+        t.on_barcode('12345')
+        assert self.displayed_price == '25.00'
