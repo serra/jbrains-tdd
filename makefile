@@ -8,7 +8,7 @@ bootstrap:
 setup:
 	pipenv shell
 test:
-	nosetests S01_fractions/tests --with-coverage
+	nosetests --with-coverage
 cibuild: test package
 ### Packageing and publishing
 package:
