@@ -1,2 +1,3 @@
 class Terminal:
-    pass
+    def on_barcode(self, barcode):
+        pass
