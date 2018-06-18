@@ -1,13 +1,14 @@
 clean:
 	rm -rf dist
 	rm -rf build
+	rm -rf serrajbrainstdd.egg-info
 bootstrap:
 	pip3 install pipenv --upgrade
 	pipenv install
 setup:
 	pipenv shell
 test:
-	nosetests tests --with-coverage
+	nosetests S01_fractions/tests --with-coverage
 cibuild: test package
 ### Packageing and publishing
 package:
