@@ -8,3 +8,6 @@ class Terminal:
 
     def on_barcode(self, barcode):
         self.price_callback('25.00')
+
+    def add_item(self, barcode, price):
+        pass

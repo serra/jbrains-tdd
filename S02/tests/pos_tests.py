@@ -25,3 +25,7 @@ class TerminalTestCase(unittest.TestCase):
         t = Terminal(_price_callback)
         t.on_barcode('12345')
         assert self.displayed_price == '25.00'
+
+    def test_can_add_item_to_terminal(self):
+        t = Terminal()
+        t.add_item('12345', '25.00')
