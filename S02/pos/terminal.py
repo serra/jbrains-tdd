@@ -4,10 +4,11 @@ class Terminal:
 
     def __init__(self, price_callback=_noop_price_callback):
         self.price_callback = price_callback
-        pass
+        self.catalog = dict()
 
     def on_barcode(self, barcode):
-        self.price_callback('25.00')
+        price = self.catalog[barcode]
+        self.price_callback(price)
 
     def add_item(self, barcode, price):
-        pass
+        self.catalog[barcode] = price
