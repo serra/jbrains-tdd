@@ -1,8 +1,8 @@
 from .context import pos
 import unittest
-from pos.terminal import hello
+from pos.terminal import Terminal
 
 
-class FractionTestCase(unittest.TestCase):
-    def test_can_say_hello(self):
-        hello()
+class TerminalTestCase(unittest.TestCase):
+    def test_can_create_terminal(self):
+        Terminal()
