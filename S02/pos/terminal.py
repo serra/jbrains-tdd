@@ -1,8 +1,5 @@
 class Terminal:
-    def _noop_price_callback(price):
-        pass
-
-    def __init__(self, price_callback=_noop_price_callback):
+    def __init__(self, price_callback):
         self.price_callback = price_callback
         self.catalog = dict()
 
