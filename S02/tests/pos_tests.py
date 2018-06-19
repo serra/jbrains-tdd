@@ -18,10 +18,10 @@ class TerminalTestCase(unittest.TestCase):
         t.add_item('a barcode', 'a price')
         t.on_barcode('a barcode')
 
-    @unittest.skip("this does not proof anything yet")
     def test_displays_no_message_if_item_does_not_exist(self):
         t = Terminal()
         t.on_barcode('does not exist')
+        self.assertIsNone(self.displayed_price)
 
     def test_can_display_a_price(self):
         t = Terminal(self._price_callback)

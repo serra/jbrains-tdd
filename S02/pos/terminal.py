@@ -7,8 +7,11 @@ class Terminal:
         self.catalog = dict()
 
     def on_barcode(self, barcode):
-        price = self.catalog[barcode]
-        self.price_callback(price)
+        try:
+            price = self.catalog[barcode]
+            self.price_callback(price)
+        except (KeyError):
+            pass
 
     def add_item(self, barcode, price):
         self.catalog[barcode] = price
