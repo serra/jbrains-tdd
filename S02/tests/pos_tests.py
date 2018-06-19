@@ -7,6 +7,12 @@ class TerminalTestCase(unittest.TestCase):
     def test_can_create_terminal(self):
         Terminal()
 
+    def setUp(self):
+        self.displayed_price = None
+
+    def _price_callback(self, price):
+        self.displayed_price = price
+
     def test_can_input_barcode(self):
         t = Terminal()
         t.add_item('a barcode', 'a price')
@@ -18,12 +24,7 @@ class TerminalTestCase(unittest.TestCase):
         t.on_barcode('does not exist')
 
     def test_can_display_a_price(self):
-        self.displayed_price = None
-
-        def _price_callback(price):
-            self.displayed_price = price
-
-        t = Terminal(_price_callback)
+        t = Terminal(self._price_callback)
         t.add_item('12345', '25.00')
         t.on_barcode('12345')
         assert self.displayed_price == '25.00'
@@ -33,12 +34,7 @@ class TerminalTestCase(unittest.TestCase):
         t.add_item('12345', '25.00')
 
     def test_can_add_item_and_return_price(self):
-        self.displayed_price = None
-
-        def _price_callback(price):
-            self.displayed_price = price
-
-        t = Terminal(_price_callback)
+        t = Terminal(self._price_callback)
         t.add_item('12345', '24.99')
         t.on_barcode('12345')
         assert self.displayed_price == '24.99'
