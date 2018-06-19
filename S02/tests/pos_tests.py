@@ -33,6 +33,13 @@ class TerminalTestCase(unittest.TestCase):
         t = Terminal()
         t.add_item('12345', '25.00')
 
+    def test_can_add_item_to_terminal_twice_last_price_counts(self):
+        t = Terminal(self._price_callback)
+        t.add_item('12345', '25.00')
+        t.add_item('12345', '24.99')
+        t.on_barcode('12345')
+        assert self.displayed_price == '24.99'
+
     def test_can_add_item_and_return_price(self):
         t = Terminal(self._price_callback)
         t.add_item('210', '12.00')
