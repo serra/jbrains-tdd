@@ -35,6 +35,6 @@ class TerminalTestCase(unittest.TestCase):
 
     def test_can_add_item_and_return_price(self):
         t = Terminal(self._price_callback)
-        t.add_item('12345', '24.99')
-        t.on_barcode('12345')
-        assert self.displayed_price == '24.99'
+        t.add_item('210', '12.00')
+        t.on_barcode('210')
+        assert self.displayed_price == '12.00'
