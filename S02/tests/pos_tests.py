@@ -19,7 +19,7 @@ class TerminalTestCase(unittest.TestCase):
         t.on_barcode('a barcode')
 
     def test_displays_no_message_if_item_does_not_exist(self):
-        t = Terminal()
+        t = Terminal(self._price_callback)
         t.on_barcode('does not exist')
         self.assertIsNone(self.displayed_price)
 
