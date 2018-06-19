@@ -3,4 +3,5 @@
 [![Build Status](https://travis-ci.org/serraict/serraict.github.io.svg?branch=master)](https://travis-ci.org/serraict/serraict.github.io)
 
 
-Exercises for jbrains' tdd course in Python.
+Exercises for [jbrains' tdd course](https://online-training.jbrains.ca/p/wbitdd-01),
+ in Python.
