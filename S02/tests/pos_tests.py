@@ -26,15 +26,6 @@ class SellOneItemTestCase(unittest.TestCase):
         self.t.on_barcode('12345')
         assert self.displayed_price == '25.00'
 
-    def test_can_add_item_to_terminal(self):
-        self.t.add_item('12345', '25.00')
-
-    def test_can_add_item_to_terminal_twice_last_price_counts(self):
-        self.t.add_item('12345', '24.99')
-        self.t.on_barcode('12345')
-        assert self.displayed_price == '24.99'
-
-    def test_can_add_item_and_return_price(self):
-        self.t.add_item('210', '12.00')
+    def test_can_display_price_of_another_item(self):
         self.t.on_barcode('210')
         assert self.displayed_price == '12.00'

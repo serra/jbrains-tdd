@@ -9,6 +9,3 @@ class Terminal:
             self.price_callback(price)
         except (KeyError):
             pass
-
-    def add_item(self, barcode, price):
-        self.catalog[barcode] = price
