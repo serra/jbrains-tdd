@@ -8,4 +8,5 @@ class Terminal:
             price = self.catalog[barcode]
             self.price_callback(price)
         except (KeyError):
-            pass
+            price = f'unknown product: "{barcode}"'
+            self.price_callback(price)

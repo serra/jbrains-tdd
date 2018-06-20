@@ -16,9 +16,9 @@ class SellOneItemTestCase(unittest.TestCase):
     def test_can_input_barcode(self):
         self.t.on_barcode('12345')
 
-    def test_displays_no_message_if_item_does_not_exist(self):
+    def test_show_friendly_message_if_item_does_not_exist(self):
         self.t.on_barcode('does not exist')
-        self.assertIsNone(self.screen.displayed_price)
+        assert self.screen.displayed_price == 'unknown product: "does not exist"'
 
     def test_can_display_a_price(self):
         self.t.on_barcode('12345')
