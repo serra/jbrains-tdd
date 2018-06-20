@@ -8,7 +8,7 @@ class SellOneItemTestCase(unittest.TestCase):
         Terminal(self.displayed_price, dict())
 
     def setUp(self):
-        self.catalog = dict()
+        self.catalog = {'12345': '25.00', '210': '12.00'}
         self.t = Terminal(self._price_callback, self.catalog)
         self.displayed_price = None
 
@@ -16,15 +16,13 @@ class SellOneItemTestCase(unittest.TestCase):
         self.displayed_price = price
 
     def test_can_input_barcode(self):
-        self.t.add_item('a barcode', 'a price')
-        self.t.on_barcode('a barcode')
+        self.t.on_barcode('12345')
 
     def test_displays_no_message_if_item_does_not_exist(self):
         self.t.on_barcode('does not exist')
         self.assertIsNone(self.displayed_price)
 
     def test_can_display_a_price(self):
-        self.t.add_item('12345', '25.00')
         self.t.on_barcode('12345')
         assert self.displayed_price == '25.00'
 
@@ -32,7 +30,6 @@ class SellOneItemTestCase(unittest.TestCase):
         self.t.add_item('12345', '25.00')
 
     def test_can_add_item_to_terminal_twice_last_price_counts(self):
-        self.t.add_item('12345', '25.00')
         self.t.add_item('12345', '24.99')
         self.t.on_barcode('12345')
         assert self.displayed_price == '24.99'
