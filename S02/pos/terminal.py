@@ -8,5 +8,5 @@ class Terminal:
             price = self.catalog[barcode]
             self.screen.display_price(price)
         except (KeyError):
-            price = f'unknown product: "{barcode}"'
-            self.screen.display_price(price)
+            message = f'unknown product: "{barcode}"'
+            self.screen.display_message(message)

@@ -39,3 +39,6 @@ class ScreenMock:
 
     def display_price(self, price):
         self._text = price
+
+    def display_message(self, message):
+        self._text = message
