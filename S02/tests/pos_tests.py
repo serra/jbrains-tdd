@@ -9,23 +9,29 @@ class SellOneItemTestCase(unittest.TestCase):
 
     def setUp(self):
         self.catalog = {'12345': '25.00', '210': '12.00'}
-        self.t = Terminal(self._price_callback, self.catalog)
+        self.screen = ScreenMock()
+        self.t = Terminal(self.screen.display_price, self.catalog)
         self.displayed_price = None
-
-    def _price_callback(self, price):
-        self.displayed_price = price
 
     def test_can_input_barcode(self):
         self.t.on_barcode('12345')
 
     def test_displays_no_message_if_item_does_not_exist(self):
         self.t.on_barcode('does not exist')
-        self.assertIsNone(self.displayed_price)
+        self.assertIsNone(self.screen.displayed_price)
 
     def test_can_display_a_price(self):
         self.t.on_barcode('12345')
-        assert self.displayed_price == '25.00'
+        assert self.screen.displayed_price == '25.00'
 
     def test_can_display_price_of_another_item(self):
         self.t.on_barcode('210')
-        assert self.displayed_price == '12.00'
+        assert self.screen.displayed_price == '12.00'
+
+
+class ScreenMock:
+    def __init__(self):
+        self.displayed_price = None
+
+    def display_price(self, price):
+        self.displayed_price = price
