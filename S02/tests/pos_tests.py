@@ -3,12 +3,13 @@ import unittest
 from pos.terminal import Terminal
 
 
-class TerminalTestCase(unittest.TestCase):
+class SellOneItemTestCase(unittest.TestCase):
     def test_can_create_terminal(self):
-        Terminal(self.displayed_price)
+        Terminal(self.displayed_price, dict())
 
     def setUp(self):
-        self.t = Terminal(self._price_callback)
+        self.catalog = dict()
+        self.t = Terminal(self._price_callback, self.catalog)
         self.displayed_price = None
 
     def _price_callback(self, price):

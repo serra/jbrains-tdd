@@ -1,7 +1,7 @@
 class Terminal:
-    def __init__(self, price_callback):
+    def __init__(self, price_callback, catalog):
         self.price_callback = price_callback
-        self.catalog = dict()
+        self.catalog = catalog
 
     def on_barcode(self, barcode):
         try:
