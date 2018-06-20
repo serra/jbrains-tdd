@@ -5,12 +5,12 @@ from pos.terminal import Terminal
 
 class SellOneItemTestCase(unittest.TestCase):
     def test_can_create_terminal(self):
-        Terminal(self.screen.display_price, dict())
+        Terminal(self.screen, dict())
 
     def setUp(self):
         self.catalog = {'12345': '25.00', '210': '12.00'}
         self.screen = ScreenMock()
-        self.t = Terminal(self.screen.display_price, self.catalog)
+        self.t = Terminal(self.screen, self.catalog)
 
     def test_can_input_barcode(self):
         self.t.on_barcode('12345')
@@ -31,11 +31,11 @@ class SellOneItemTestCase(unittest.TestCase):
 
 class ScreenMock:
     def __init__(self):
-        self.displayed_price = None
+        self._text = None
 
     # function to be able to verify the text in tests:
     def get_display_text(self):
-        return self.displayed_price
+        return self._text
 
     def display_price(self, price):
-        self.displayed_price = price
+        self._text = price
