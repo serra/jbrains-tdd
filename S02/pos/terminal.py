@@ -4,9 +4,8 @@ class Terminal:
         self.catalog = catalog
 
     def on_barcode(self, barcode):
-        try:
-            price = self.catalog[barcode]
-            self.screen.display_price(price)
-        except (KeyError):
+        if barcode in self.catalog:
+            self.screen.display_price(self.catalog[barcode])
+        else:
             message = f'unknown product: "{barcode}"'
             self.screen.display_message(message)
